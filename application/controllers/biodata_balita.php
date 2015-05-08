@@ -5,6 +5,7 @@ class Biodata_balita extends CI_Controller {
 	/* main */
 	public function index()	{
 		$data["title"] = "Biodata Balita";
+		$data["user"] = "petugas posyandu";
 		$this->load->view('header', $data);
 		$data1["nav"][0] = " class=\"active\"";
 		$data1["nav"][1] = "";

@@ -1,5 +1,5 @@
 				<!-- body -->
-				<div class="col-md-6">
+				<div class="col-md-5">
 					<h3>Perkembangan Balita</h3>
 					<form class="form-horizontal" method="post" action="<?php echo base_url(); ?>perkembangan_balita/set">
 						<div class="form-group">
@@ -54,14 +54,17 @@
 						</div>
 					</form>
 				</div>
+				<!-- space -->
+				<div class="col-md-1">
+				</div>
 				<!-- search -->
-				<div class="col-md-2">
+				<div class="col-md-3" id="rightbar">
 					<input type="text" class="form-control" id="search" placeholder="Cari Balita" style="width: 100%" onchange="cari()" value="<?=$sear?>">
 					<script>
 						function cari() {
 							var val = $('#search').val();
 							// alert(val);
-							window.location.replace("perkembangan_balita/index/"+val);
+							window.location.replace("<?php echo base_url(); ?>perkembangan_balita/index/"+val);
 						}
 					</script>
 				</div>

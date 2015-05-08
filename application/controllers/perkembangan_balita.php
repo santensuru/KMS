@@ -5,6 +5,7 @@ class Perkembangan_balita extends CI_Controller {
 	/* main */
 	public function index($param = null)	{
 		$data["title"] = "Perkembangan Balita";
+		$data["user"] = "petugas posyandu";
 		$this->load->view('header', $data);
 		$data1["nav"][0] = "";
 		$data1["nav"][1] = " class=\"active\"";

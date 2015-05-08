@@ -45,7 +45,36 @@
 				border-style: solid;
 				border-width: 2px;
 				margin-left: 20px;
+				margin-right: -20px;
 				height: 530px;
+			}
+			#navbar ul li {
+				width: 100%;
+				margin-top: 16px;
+			}
+			#rightbar {
+				margin-left: -20px;
+				margin-right: 20px;
+			}
+			#tips {
+				height: 150px;
+				overflow: auto;
+				background-color: #E7E7E7;
+				width: 100%;
+				padding: 20px;
+			}
+			#calc {
+				height: 350px;
+				background-color: #E7E7E7;
+				width: 100%;
+				padding: 20px;
+				margin-top: 20px;
+			}
+			#colm {
+				height: 420px;
+				background-color: #E7E7E7;
+				width: 100%;
+				padding: 20px;
 			}
 		</style>
 	</head>
@@ -67,7 +96,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li id="user"><a href="#">petugas posyandu</a></li>
+						<li id="user"><a href="#"><?=$user?></a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
@@ -75,7 +104,28 @@
 		<div id="content">
 			<!-- position bar -->
 			<div id="position-bar">
-				<a href="<?php echo base_url(); ?>">Beranda</a> > <?=$title?>
+<?php
+	if ($user != "pengguna") {
+?>
+				<a href="<?php echo base_url(); ?>biodata_balita">Beranda</a> > <?=$title?>
+<?php
+	} else {
+		if ($title == "Beranda") {
+?>
+				<?=$title?>
+<?php
+		} else if ($title == "Saran") {
+?>
+				<a href="<?php echo base_url(); ?>beranda">Beranda</a> > <a href="<?php echo base_url(); ?>detail_balita">Detail Balita</a> > <?=$title?>
+<?php
+		} else {
+?>
+				<a href="<?php echo base_url(); ?>beranda">Beranda</a> > <?=$title?>
+<?php
+		}
+	}
+	echo "\r\n";
+?>
 			</div>
 			<!-- content -->
 			<div class="row">

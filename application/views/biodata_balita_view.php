@@ -1,5 +1,5 @@
 				<!-- body -->
-				<div class="col-md-6">
+				<div class="col-md-5">
 					<h3>Biodata Balita</h3>
 					<form class="form-horizontal" method="post" action="<?php echo base_url(); ?>biodata_balita/set">
 						<div class="form-group">
