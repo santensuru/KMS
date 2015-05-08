@@ -76,6 +76,12 @@
 				width: 100%;
 				padding: 20px;
 			}
+			#colm2 {
+				height: 462px;
+				background-color: #E7E7E7;
+				width: 100%;
+				padding: 20px;
+			}
 		</style>
 	</head>
 	<body>
