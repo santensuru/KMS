@@ -1,6 +1,6 @@
 				<!-- body -->
 				<div class="col-md-5">
-					<h3>Detail Balita</h3>
+					<h3>Saran</h3>
 					<form class="form-horizontal">
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Nama</label>
