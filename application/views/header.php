@@ -96,7 +96,18 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?php echo base_url(); ?>"><h1>Kartu Menuju Sehat</h1></a>
+<?php
+	if ($user != "pengguna") {
+?>
+					<a class="navbar-brand" href="<?php echo base_url(); ?>biodata_balita"><h1>Kartu Menuju Sehat</h1></a>
+<?php
+	} else {
+?>
+					<a class="navbar-brand" href="<?php echo base_url(); ?>beranda"><h1>Kartu Menuju Sehat</h1></a>
+<?php
+	}
+	echo "\r\n";
+?>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
