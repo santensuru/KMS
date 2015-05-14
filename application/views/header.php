@@ -13,6 +13,8 @@
 				$(".confirm").easyconfirm({locale: { title: 'Simpan', button: ['Tidak','Ya']}});
 			});
 		</script>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/sweetalert.css">
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/sweetalert.min.js"></script>
 		<style type="text/css">
 			h1 {
 				margin-top: 2px;
