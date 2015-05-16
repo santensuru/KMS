@@ -2,6 +2,7 @@
 				<div class="col-md-5">
 					<h3>Beranda</h3>
 					<p>Selamat datang <?=$user?> :)</p>
+					<p>Aplikasi ini dibuat untuk membantu para orang tua yang ingin mengetahui Status Gizi bayi dan balita. Seperti layaknya KMS (Kartu Menuju Sehat), bayi dan balita diukur berdasarkan umur dan berat badan, dari situlah bisa diketahui status gizi bayi dan balita, jadwal imunisasi, anjuran pemberian makanan,tahap perkembangan dan rangsangan perkembangan untuk bayi dan balita.</p>
 				</div>
 				<!-- space -->
 				<div class="col-md-1">
@@ -17,7 +18,7 @@
 					</div>
 					<!-- calculator -->
 					<div id="calc">
-						<h3>Calculator</h3>
+						<h3>Kalkulator Sehat</h3>
 						<form name="calc" class="form form-horizontal">
 							<table border="0">
 								<tr>
@@ -73,8 +74,10 @@
 										<br>
 										<input type="button" name="clear" value="  c  " onclick="doCalc('c')">
 										<input type="button" name="zero"  value="  0  " onclick="doCalc(0)">
-										<input type="button" name="doit"  value="  =  " onclick="doCalc('=')">
+										<input type="button" name="point" value="  .   " onclick="doCalc('.')">
 										<!-- <input type="button" name="div"   value="  /  " onclick="calc.input.value += ' / '"> -->
+										<br>
+										<input type="button" name="point"  value="  =  " onclick="doCalc('=')">
 										<br>
 									</td>
 									<td width="50%" style="text-align: center">
@@ -166,6 +169,8 @@
 											// 	document.getElementById("Weight").value = eval(document.getElementById("Weight").value);
 											if (e == "c")
 												document.getElementById("Weight").value = "";
+											if (e == ".")
+												document.getElementById("Weight").value += e;
 										}
 										else if (val == "Height") {
 											if (e >= "0" && e <= "9")
@@ -174,6 +179,8 @@
 											// 	document.getElementById("Height").value = eval(document.getElementById("Height").value);
 											if (e == "c")
 												document.getElementById("Height").value = "";
+											if (e == ".")
+												document.getElementById("Height").value += e;
 										}
 										//  else if (val == "Age") {
 										// 	if (e >= "0" && e <= "9")
