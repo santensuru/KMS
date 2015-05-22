@@ -31,7 +31,14 @@
 						<script>
 							function saran() {
 								var val = $('#name').val();
-								window.location.replace("<?php echo base_url(); ?>saran/index/"+val);
+								if (val == "")
+									val = "demo";
+								// window.location.replace("<?php echo base_url(); ?>saran/index/"+val);
+								swal({
+									title: "Saran untuk "+val,
+									text: "saran ....",
+									showConfirmationButton: false
+								});
 							}
 						</script>
 					</div>
