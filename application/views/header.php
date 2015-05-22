@@ -15,6 +15,10 @@
 		</script>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/sweetalert.css">
 		<script type="text/javascript" src="<?php echo base_url(); ?>js/sweetalert.min.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>css/fullcalendar.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>css/fullcalendar.print.css" type="text/css" media='print' />
+		<script src="<?php echo base_url(); ?>js/moment.min.js"></script>
+		<script src="<?php echo base_url(); ?>js/fullcalendar.min.js"></script>
 		<style type="text/css">
 			h1 {
 				margin-top: 2px;
@@ -53,6 +57,7 @@
 			#navbar ul li {
 				width: 100%;
 				margin-top: 16px;
+				/*height: 20px;*/
 			}
 			#rightbar {
 				margin-left: -20px;
@@ -83,6 +88,16 @@
 				background-color: #E7E7E7;
 				width: 100%;
 				padding: 20px;
+			}
+			#calendar-body {
+				margin: 40px 10px;
+				padding: 0;
+				font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+				font-size: 14px;
+			}
+			#calendar {
+				max-width: 900px;
+				margin: 0 auto;
 			}
 		</style>
 	</head>
