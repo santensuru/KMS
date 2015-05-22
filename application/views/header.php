@@ -103,6 +103,10 @@
 				max-width: 900px;
 				margin: 0 auto;
 			}
+			#myfirstchart {
+				height: 462px;
+				padding: 20px;
+			}
 		</style>
 	</head>
 	<body>

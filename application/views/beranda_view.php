@@ -1,7 +1,8 @@
 				<!-- body -->
 				<div class="col-md-5">
-					<h3>Beranda</h3>
-					<p>Selamat datang <?=$user?> :)</p>
+					<!-- <h3>Beranda</h3> -->
+					<h3></h3>
+					<h4>Selamat datang <?=$user?> :)</h4>
 					<p>Aplikasi ini dibuat untuk membantu para orang tua yang ingin mengetahui Status Gizi bayi dan balita. Seperti layaknya KMS (Kartu Menuju Sehat), bayi dan balita diukur berdasarkan umur dan berat badan, dari situlah bisa diketahui status gizi bayi dan balita, jadwal imunisasi, anjuran pemberian makanan,tahap perkembangan dan rangsangan perkembangan untuk bayi dan balita.</p>
 				</div>
 				<!-- space -->

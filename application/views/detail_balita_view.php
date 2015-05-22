@@ -1,6 +1,7 @@
 				<!-- body -->
 				<div class="col-md-5">
-					<h3>Detail Balita</h3>
+					<!-- <h3>Detail Balita</h3> -->
+					<h3></h3>
 					<form class="form-horizontal">
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Nama</label>
@@ -12,7 +13,7 @@
 					<!-- <div id="colm">
 						<h3>Tabel</h3>
 					</div> -->
-					<div id="myfirstchart" style="height: 420px;"></div>
+					<div id="myfirstchart"></div>
 					<script>
 						new Morris.Line({
 							// ID of the element in which to draw the chart.
