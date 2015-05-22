@@ -9,9 +9,34 @@
 							</div>
 						</div>
 					</form>
-					<div id="colm">
+					<!-- <div id="colm">
 						<h3>Tabel</h3>
-					</div>
+					</div> -->
+					<div id="myfirstchart" style="height: 420px;"></div>
+					<script>
+						new Morris.Line({
+							// ID of the element in which to draw the chart.
+							element: 'myfirstchart',
+							// Chart data records -- each entry in this array corresponds to a point on
+							// the chart.
+							data: [
+								{ m: '2015-01', v: 1 },
+								{ m: '2015-02', v: 2 },
+								{ m: '2015-03', v: 5 },
+								{ m: '2015-04', v: 5 },
+								{ m: '2015-05', v: 6 }
+							],
+							// The name of the data record attribute that contains x-values.
+							xkey: 'm',
+							// A list of names of data record attributes that contain y-values.
+							ykeys: ['v'],
+							// Labels for the ykeys -- will be displayed when you hover over the
+							// chart.
+							labels: ['Berat'],
+							xLabels: ['month'],
+							postUnits: [' Kg']
+						});
+					</script>
 				</div>
 				<!-- space -->
 				<div class="col-md-1">

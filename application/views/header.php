@@ -19,6 +19,9 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/fullcalendar.print.css" type="text/css" media='print' />
 		<script src="<?php echo base_url(); ?>js/moment.min.js"></script>
 		<script src="<?php echo base_url(); ?>js/fullcalendar.min.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>css/morris.css" type="text/css" />
+		<script src="<?php echo base_url(); ?>js/raphael-min.js"></script>
+		<script src="<?php echo base_url(); ?>js/morris.js"></script>
 		<style type="text/css">
 			h1 {
 				margin-top: 2px;
@@ -58,6 +61,7 @@
 				width: 100%;
 				margin-top: 16px;
 				/*height: 20px;*/
+				font-size: 1.5em;
 			}
 			#rightbar {
 				margin-left: -20px;
