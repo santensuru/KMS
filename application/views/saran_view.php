@@ -5,7 +5,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Nama</label>
 							<div class="col-sm-10" >
-								<input type="text" name="name" placeholder="nama" value="<?=$name?>" id="name" disabled>
+								<input type="text" class="form-control" name="name" placeholder="nama" value="<?=$name?>" id="name" disabled>
 							</div>
 						</div>
 					</form>

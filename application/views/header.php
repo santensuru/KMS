@@ -22,6 +22,11 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/morris.css" type="text/css" />
 		<script src="<?php echo base_url(); ?>js/raphael-min.js"></script>
 		<script src="<?php echo base_url(); ?>js/morris.js"></script>
+		<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/demo.page.css" media="screen" type="text/css" />
+		<script src="<?php echo base_url(); ?>js/jquery.jatt.min.js"></script> -->
+		<link rel="stylesheet" href="<?php echo base_url(); ?>css/anythingslider.css" type="text/css" />
+		<script src="<?php echo base_url(); ?>js/jquery.anythingslider.js"></script>
+		<script src="<?php echo base_url(); ?>js/jquery.anythingslider.video.js"></script>
 		<style type="text/css">
 			h1 {
 				margin-top: 2px;
@@ -70,16 +75,23 @@
 			#tips {
 				height: 150px;
 				overflow: auto;
-				background-color: #E7E7E7;
+				/*background-color: #E7E7E7;*/
 				width: 100%;
 				padding: 20px;
+				border: 2px;
+				border-style: dotted;
+				border-radius: 10px;
 			}
 			#calc {
 				height: 350px;
-				background-color: #E7E7E7;
+				/*background-color: #E7E7E7;*/
 				width: 100%;
 				padding: 20px;
 				margin-top: 20px;
+				border: 2px;
+				border-style: dotted;
+				border-radius: 10px;
+				text-align: center;
 			}
 			#colm {
 				height: 420px;
@@ -106,6 +118,14 @@
 			#myfirstchart {
 				height: 462px;
 				padding: 20px;
+			}
+			#slider {
+				margin-left: -70px;
+				margin-right: 70px;
+			}
+			#slider1 {
+				height: 360px;
+				width: 600px;
 			}
 		</style>
 	</head>

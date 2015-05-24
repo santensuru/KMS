@@ -4,6 +4,45 @@
 					<h3></h3>
 					<h4>Selamat datang <?=$user?> :)</h4>
 					<p>Aplikasi ini dibuat untuk membantu para orang tua yang ingin mengetahui Status Gizi bayi dan balita. Seperti layaknya KMS (Kartu Menuju Sehat), bayi dan balita diukur berdasarkan umur dan berat badan, dari situlah bisa diketahui status gizi bayi dan balita, jadwal imunisasi, anjuran pemberian makanan,tahap perkembangan dan rangsangan perkembangan untuk bayi dan balita.</p>
+					
+					<!-- slider -->
+					<div id="slider">
+						<!-- AnythingSlider #1 -->
+						<ul id="slider1">
+							<li><img src="<?php echo base_url(); ?>images/1.jpg" alt="1"></li>
+							<li><img src="<?php echo base_url(); ?>images/2.jpg" alt="2"></li>
+							<li class="panel5">
+								<div>
+									<div class="textSlide">
+									<span class="rightside"><object><iframe width="85%" height="300px" src="https://www.youtube.com/embed/qj_baEHkdcY" frameborder="0" allowfullscreen></iframe></object></span>
+										<ul>
+											<li>Bayi sehat bisa dilihat dari cara dia tertawa.</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<!-- END AnythingSlider #1 -->
+
+						<script>
+							// Set up Sliders
+							// **************
+							$(function(){
+
+								$('#slider1').anythingSlider({
+									theme           : 'default',
+									easing          : 'easeInOutBack',
+									navigationFormatter : function(index, panel){
+										return ['Sehat', 'Gemuk', 'Tertawa'][index - 1];
+									},
+									onSlideComplete : function(slider){
+										// alert('Welcome to Slide #' + slider.currentPage);
+									}
+								});
+
+							});
+						</script>
+					</div>
 				</div>
 				<!-- space -->
 				<div class="col-md-1">
@@ -12,16 +51,16 @@
 				<div class="col-md-3" id="rightbar">
 					<!-- tips -->
 					<div id="tips">
-						<h3>Tips</h3>
+						<!-- <h3>Tips</h3> -->
 						<p>
 							<?=$quot?>
 						</p>
 					</div>
 					<!-- calculator -->
 					<div id="calc">
-						<h3>Kalkulator Sehat</h3>
+						<h3 style="text-align:center;">Kalkulator Sehat</h3>
 						<form name="calc" class="form form-horizontal">
-							<table border="0">
+							<table border="0" align="center">
 								<tr>
 									<td colspan="3">
 										<br>
@@ -56,32 +95,44 @@
 										<br>
 									</td>
 								</tr>
-								<tr>
+								<!-- <tr>
 									<td colspan="2" style="text-align: right">
 										<input type="button" name="one"   value="  1  " onclick="doCalc(1)">
 										<input type="button" name="two"   value="  2  " onclick="doCalc(2)">
 										<input type="button" name="three" value="  3  " onclick="doCalc(3)">
-										<!-- <input type="button" name="plus"  value="  +  " onclick="calc.input.value += ' + '"> -->
 										<br>
 										<input type="button" name="four"  value="  4  " onclick="doCalc(4)">
 										<input type="button" name="five"  value="  5  " onclick="doCalc(5)">
 										<input type="button" name="six"   value="  6  " onclick="doCalc(6)">
-										<!-- <input type="button" name="minus" value="  -  " onclick="calc.input.value += ' - '"> -->
 										<br>
 										<input type="button" name="seven" value="  7  " onclick="doCalc(7)">
 										<input type="button" name="eight" value="  8  " onclick="doCalc(8)">
 										<input type="button" name="nine"  value="  9  " onclick="doCalc(9)">
-										<!-- <input type="button" name="times" value="  x  " onclick="calc.input.value += ' * '"> -->
 										<br>
 										<input type="button" name="clear" value="  c  " onclick="doCalc('c')">
 										<input type="button" name="zero"  value="  0  " onclick="doCalc(0)">
 										<input type="button" name="point" value="  .   " onclick="doCalc('.')">
-										<!-- <input type="button" name="div"   value="  /  " onclick="calc.input.value += ' / '"> -->
 										<br>
 										<input type="button" name="point"  value="  =  " onclick="doCalc('=')">
 										<br>
+
 									</td>
 									<td width="50%" style="text-align: center">
+										<h1 id="hasil"></h1>
+									</td>
+								</tr> -->
+								<tr>
+									<td colspan="3">
+									<button type="button" class="btn btn-default" onclick="doCalc('=')">Hitung</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<br>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3">
 										<h1 id="hasil"></h1>
 									</td>
 								</tr>

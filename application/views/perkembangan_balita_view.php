@@ -5,19 +5,19 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Nama</label>
 							<div class="col-sm-10" >
-								<input type="text" name="name" placeholder="nama" disabled value="<?=$name?>">
+								<input type="text" class="form-control" name="name" placeholder="nama" disabled value="<?=$name?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Tanggal Lahir</label>
 							<div class="col-sm-10" >
-								<input type="date" name="date" placeholder="dd/mm/yyyy" disabled value="<?=$date?>">
+								<input type="date" class="form-control" name="date" placeholder="dd/mm/yyyy" disabled value="<?=$date?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Alamat</label>
 							<div class="col-sm-10" >
-								<input type="text" name="addr" placeholder="alamat" disabled value="<?=$addr?>">
+								<input type="text" class="form-control" name="addr" placeholder="alamat" disabled value="<?=$addr?>">
 							</div>
 						</div>
 						<div class="form-group">
@@ -31,19 +31,19 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Berat</label>
 							<div class="col-sm-10" >
-								<input type="text" name="widt" placeholder="berat">
+								<input type="text" class="form-control" name="widt" placeholder="berat">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Tinggi</label>
 							<div class="col-sm-10" >
-								<input type="text" name="heig" placeholder="tinggi">
+								<input type="text" class="form-control" name="heig" placeholder="tinggi">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Catatan</label>
 							<div class="col-sm-10" >
-								<textarea name="note"></textarea>
+								<textarea name="note" class="form-control"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
