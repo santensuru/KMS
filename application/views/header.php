@@ -27,6 +27,8 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/anythingslider.css" type="text/css" />
 		<script src="<?php echo base_url(); ?>js/jquery.anythingslider.js"></script>
 		<script src="<?php echo base_url(); ?>js/jquery.anythingslider.video.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>css/new.faq.style.css" type="text/css" />
+		<script src="<?php echo base_url(); ?>js/faq.main.js"></script>
 		<style type="text/css">
 			h1 {
 				margin-top: 2px;
@@ -126,6 +128,24 @@
 			#slider1 {
 				height: 360px;
 				width: 600px;
+			}
+			#faq {
+				margin-left: -60px;
+			}
+			#basics {
+				list-style-type: none;
+			}
+			#basics li {
+				border: 2px;
+				border-style: dotted;
+				border-radius: 10px;
+			}
+			#basics p {
+				font-size: 0.85em;
+				/*color: #E4D254;*/
+			}
+			#tab {
+				/*background-color: #369536;*/
 			}
 		</style>
 	</head>
