@@ -13,7 +13,11 @@ class Jadwal_imunisasi extends CI_Controller {
 		$data1["nav"][3] = "";
 		$this->load->view('navbar_pengguna', $data1);
 		$data2["user"] = "pengguna";
-		$data2["quot"] = "test tips";
+
+		$this->load->model("jadwal");
+		$jd = $this->jadwal->ambil();
+
+		$data2["jadw"] = $jd;
 		$this->load->view('jadwal_imunisasi_view', $data2);
 		$this->load->view('footer');
 

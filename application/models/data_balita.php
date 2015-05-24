@@ -7,7 +7,11 @@ Class Data_balita extends CI_Model {
 	}
 
 	function cari($param) {
-		return "mock";
+		$this->db->from("balita, perkembangan_balita");
+		$this->db->where("Nama like '%".$param."%' AND balita.ID_Balita = perkembangan_balita.ID_Balita");
+		$result = $this->db->get();
+		return $result;
+		// return "mock";
 	}
 }
 

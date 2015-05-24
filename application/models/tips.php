@@ -3,11 +3,10 @@
 Class Tips extends CI_Model {
 
 	function ambil() {
-
-	}
-
-	function ambil_random() {
-		return "mock";
+		$this->db->from("saran");
+		$this->db->order_by("RAND() LIMIT 1");
+		$result = $this->db->get();
+		return $result;
 	}
 }
 

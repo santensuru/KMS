@@ -13,7 +13,11 @@ class Tanya_jawab extends CI_Controller {
 		$data1["nav"][3] = " class=\"active\"";
 		$this->load->view('navbar_pengguna', $data1);
 		$data2["user"] = "pengguna";
-		$data2["quot"] = "test tips";
+
+		$this->load->model("faq");
+		$fq = $this->faq->ambil();
+
+		$data2["faq"] = $fq;
 		$this->load->view('tanya_jawab_view', $data2);
 		$this->load->view('footer');
 

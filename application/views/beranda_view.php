@@ -55,6 +55,11 @@
 						<p>
 							<?=$quot?>
 						</p>
+						<p>
+							<a href="http://bayi-perawatan.blogspot.com/2013/09/ciri-ciri-bayi-sehat.html" target="blank">
+								read more ...
+							</a>
+						</p>
 					</div>
 					<!-- calculator -->
 					<div id="calc">

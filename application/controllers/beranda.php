@@ -13,8 +13,15 @@ class Beranda extends CI_Controller {
 		$data1["nav"][3] = "";
 		$this->load->view('navbar_pengguna', $data1);
 		$data2["user"] = "pengguna";
+
 		$this->load->model("tips");
-		$data2["quot"] = $this->tips->ambil_random();
+		$tp = $this->tips->ambil();
+		$tempSaran = "";
+		foreach ($tp->result() as $row) {
+			$tempSaran = $row->Saran;
+		}
+		$data2["quot"] = $tempSaran;
+
 		$this->load->view('beranda_view', $data2);
 		$this->load->view('footer');
 

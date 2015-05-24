@@ -21,16 +21,27 @@
 								editable: true,
 								eventLimit: true, // allow "more" link when too many events
 								events: [
+									// {
+									// 	title: 'Imunisasi',
+									// 	start: '2015-05-07',
+									// 	end: '2015-05-10'
+									// },
+									// {
+									// 	title: 'Click for Google',
+									// 	url: 'http://google.com/',
+									// 	start: '2015-05-28'
+									// },
+
+<?php
+	foreach ($jadw->result() as $row) {
+?>
 									{
-										title: 'Imunisasi',
-										start: '2015-05-07',
-										end: '2015-05-10'
+										title: '<?= $row->Memo ?>',
+										start: '<?= $row->Tanggal ?>'
 									},
-									{
-										title: 'Click for Google',
-										url: 'http://google.com/',
-										start: '2015-05-28'
-									}
+<?php
+	}
+?>
 								]
 							});
 							

@@ -21,11 +21,20 @@
 							// Chart data records -- each entry in this array corresponds to a point on
 							// the chart.
 							data: [
+<?php
+	if ($name != "") {
+		foreach ($cart->result() as $row) {
+?>
 								{ m: '2015-01', v: 1 },
 								{ m: '2015-02', v: 2 },
 								{ m: '2015-03', v: 5 },
 								{ m: '2015-04', v: 5 },
-								{ m: '2015-05', v: 6 }
+								{ m: '2015-05', v: 6 },
+								{ m: '<?= $row->Timestamp ?>', v: <?= $row->Berat_Badan ?> },
+<?php
+		}
+	}
+?>
 							],
 							// The name of the data record attribute that contains x-values.
 							xkey: 'm',
@@ -53,7 +62,7 @@
 						}
 					</script>
 					<div style="margin-top: 450px">
-						<button type="button" class="btn btn-default" id="saran" onclick="saran()">Saran</button>
+						<button type="button" class="btn btn-default" id="saran" onclick="saran()" <?= $state; ?>>Saran</button>
 						<script>
 							function saran() {
 								var val = $('#name').val();
@@ -62,7 +71,7 @@
 								// window.location.replace("<?php echo base_url(); ?>saran/index/"+val);
 								swal({
 									title: "Saran untuk "+val,
-									text: "saran ....",
+									text: "<?= $tips ?>",
 									showConfirmationButton: false
 								});
 							}

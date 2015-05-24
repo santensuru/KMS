@@ -15,6 +15,9 @@ class Detail_balita extends CI_Controller {
 		if ($param == null) {
 			$data2["name"] = "";
 			$data2["sear"] = "";
+			$data2["tips"] = "";
+
+			$data2["state"] = "disabled";
 		}
 		else {
 			$data2["sear"] = $param;
@@ -23,7 +26,33 @@ class Detail_balita extends CI_Controller {
 			$this->load->model("data_balita");
 			$bt = $this->data_balita->cari($param);
 			
-			$data2["name"] = $bt;
+
+			// var_dump($bt);
+
+			$tempNama = "";
+			foreach ($bt->result() as $row) {
+				if ($tempNama == "")
+					$tempNama = $row->Nama;
+				else if ($tempNama == $row->Nama)
+					continue;
+				else
+					$tempNama = "";
+			}
+
+			$data2["name"] = $tempNama;
+			$data2["cart"] = $bt;
+
+			$this->load->model("tips");
+			$tp = $this->tips->ambil();
+
+			$tempSaran = "";
+			foreach ($tp->result() as $row) {
+				$tempSaran = $row->Saran;
+			}
+
+			$data2["tips"] = $tempSaran;
+
+			$data2["state"] = "";
 		}
 		$this->load->view('detail_balita_view', $data2);
 		$this->load->view('footer');

@@ -131,6 +131,9 @@
 			}
 			#faq {
 				margin-left: -60px;
+				height: 500px;
+				/*background-color: red;*/
+				overflow: auto;
 			}
 			#basics {
 				list-style-type: none;
