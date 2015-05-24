@@ -35,8 +35,10 @@ class Detail_balita extends CI_Controller {
 					$tempNama = $row->Nama;
 				else if ($tempNama == $row->Nama)
 					continue;
-				else
+				else {
 					$tempNama = "";
+					break;
+				}
 			}
 
 			$data2["name"] = $tempNama;
