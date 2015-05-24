@@ -13,7 +13,8 @@ class Beranda extends CI_Controller {
 		$data1["nav"][3] = "";
 		$this->load->view('navbar_pengguna', $data1);
 		$data2["user"] = "pengguna";
-		$data2["quot"] = "test tips";
+		$this->load->model("tips");
+		$data2["quot"] = $this->tips->ambil_random();
 		$this->load->view('beranda_view', $data2);
 		$this->load->view('footer');
 

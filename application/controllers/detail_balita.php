@@ -20,8 +20,10 @@ class Detail_balita extends CI_Controller {
 			$data2["sear"] = $param;
 
 			// load from db
+			$this->load->model("data_balita");
+			$bt = $this->data_balita->cari($param);
 			
-			$data2["name"] = "";
+			$data2["name"] = $bt;
 		}
 		$this->load->view('detail_balita_view', $data2);
 		$this->load->view('footer');

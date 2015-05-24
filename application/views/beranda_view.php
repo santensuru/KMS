@@ -82,14 +82,19 @@
 										&nbsp; <input type="text" id="Height" size="16" calss="form-control" style="width: 60%; text-align:right"  onclick="changeVal('Height')" placeholder="tinggi"> CM
 									</td>
 								</tr>
-								<!-- <tr>
+								<tr>
 									<td style="text-align:right">
 										Usia
 									</td>
 									<td colspan="2">
-										&nbsp; <input type="text" id="Age"    size="16" calss="form-control" style="width: 60%; text-align:right" onclick="changeVal('Age')"    placeholder="usia"> Tahun
+										&nbsp; <select id="selectAge" onchange="changeAge()" style="width: 50%">
+											<option value="1"> < 1 bulan </option>
+											<option value="2" selected="selected"> 1 - 10 tahun </option>
+											<option value="3"> > 10 tahun </option>
+										</select>
+										<input type="text" id="Age"   size="16" calss="form-control" style="width: 20%; text-align:right"  onclick="changeVal('Age')"     placeholder="usia">
 									</td>
-								</tr> -->
+								</tr>
 								<tr>
 									<td colspan="3">
 										<br>
@@ -139,6 +144,13 @@
 							</table>
 							<script>
 								var val;
+								var age = 2;
+
+								function changeAge() {
+									var e = document.getElementById("selectAge");
+									age = e.options[e.selectedIndex].value;
+									// alert(age);
+								}
 
 								function changeVal(e) {
 									val = e;
@@ -149,68 +161,118 @@
 									if (e == "=") {
 										var w = document.getElementById("Weight").value;
 										var h = document.getElementById("Height").value;
-										// var a = document.getElementById("Age").value;
+										var a = document.getElementById("Age").value;
 
 										// count
 										// document.getElementById("hasil").innerHTML = "????";
 										// alert("????");
 
-										if (w == "" || h == "")
+										if (w == "" || h == "" || a == "")
 											swal({
 												title: "Tolong Isi kolom Berat dan Tinggi dengan Angka",
 												showConfirmationButton: false
 											});
 
 										else {
-											// w & h
-											var imt = w / Math.pow(h/100.0, 2);
-											document.getElementById("hasil").innerHTML = imt.toFixed(2);
-											// alert("imt");
+											if (age == 1) {
+												var imt = a / 2.0 + 4;
+												document.getElementById("hasil").innerHTML = imt.toFixed(2);
 
-											var pos = Math.round(imt).toFixed(2);
+												var pos = Math.round(imt).toFixed(2);
+												var wei = Math.round(w).toFixed(2);
+											
+												if (wei < pos - 0.5)
+													swal({
+														title: "Sangat Kurus",
+														showConfirmationButton: false
+													});
+												else if (wei > pos + 0.5)
+													swal({
+														title: "Gemuk",
+														showConfirmationButton: false
+													});
+												else
+													swal({
+														title: "Ideal",
+														showConfirmationButton: false
+													});
 
-											if (pos < 17)
-												swal({
-													title: "Sangat Kurus",
-													showConfirmationButton: false
-												});
-											// alert("Sangat Kurus");
-											else if (pos < 18.5)
-												swal({
-													title: "Kurus",
-													showConfirmationButton: false
-												});
-												// alert("Kurus");
-											else if (pos < 25)
-												swal({
-													title: "Ideal",
-													showConfirmationButton: false
-												});
-												// alert("Ideal");
-											else if (pos < 30)
-												swal({
-													title: "Gemuk",
-													showConfirmationButton: false
-												});
-												// alert("Gemuk");
-											else if (pos < 35)
-												swal({
-													title: "Obesitas I",
-													showConfirmationButton: false
-												});
-												// alert("Obesitas I");
-											else if (pos < 40)
-												swal({
-													title: "Obesitas II",
-													showConfirmationButton: false
-												});
-												// alert("Obesitas II");
-											else
-												swal({
-													title: "Obesitas III",
-													showConfirmationButton: false
-												});
-												// alert("Obesitas III");
+											}
+											else if (age == 2) {
+												var imt = a * 2.0 + 8;
+												document.getElementById("hasil").innerHTML = imt.toFixed(2);
+
+												var pos = Math.round(imt).toFixed(2);
+												var wei = Math.round(w).toFixed(2);
+											
+												if (wei < pos - 0.5)
+													swal({
+														title: "Sangat Kurus",
+														showConfirmationButton: false
+													});
+												else if (wei > pos + 0.5)
+													swal({
+														title: "Gemuk",
+														showConfirmationButton: false
+													});
+												else
+													swal({
+														title: "Ideal",
+														showConfirmationButton: false
+													});
+
+											}
+											else {
+												// w & h
+												var imt = w / Math.pow(h/100.0, 2);
+												document.getElementById("hasil").innerHTML = imt.toFixed(2);
+												// alert("imt");
+
+												var pos = Math.round(imt).toFixed(2);
+
+												if (pos < 17)
+													swal({
+														title: "Sangat Kurus",
+														showConfirmationButton: false
+													});
+												// alert("Sangat Kurus");
+												else if (pos < 18.5)
+													swal({
+														title: "Kurus",
+														showConfirmationButton: false
+													});
+													// alert("Kurus");
+												else if (pos < 25)
+													swal({
+														title: "Ideal",
+														showConfirmationButton: false
+													});
+													// alert("Ideal");
+												else if (pos < 30)
+													swal({
+														title: "Gemuk",
+														showConfirmationButton: false
+													});
+													// alert("Gemuk");
+												else if (pos < 35)
+													swal({
+														title: "Obesitas I",
+														showConfirmationButton: false
+													});
+													// alert("Obesitas I");
+												else if (pos < 40)
+													swal({
+														title: "Obesitas II",
+														showConfirmationButton: false
+													});
+													// alert("Obesitas II");
+												else
+													swal({
+														title: "Obesitas III",
+														showConfirmationButton: false
+													});
+													// alert("Obesitas III");
+											}
 										}
 									}
 									else {
