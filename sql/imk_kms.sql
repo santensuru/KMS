@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2015 at 01:39 PM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Generation Time: May 25, 2015 at 07:15 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.5.19
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -32,18 +32,43 @@ CREATE TABLE IF NOT EXISTS `balita` (
   `Nama` varchar(200) NOT NULL,
   `Tanggal Lahir` date NOT NULL,
   `Jenis Kelamin` varchar(100) NOT NULL,
-  PRIMARY KEY (`ID_Balita`),
-  KEY `ID Petugas` (`ID_Petugas`)
+  `Urutan_anak` int(11) NOT NULL,
+  `Nama_ayah` varchar(30) NOT NULL,
+  `Pekerjaan_ayah` varchar(30) NOT NULL,
+  `Nama_ibu` varchar(30) NOT NULL,
+  `Pekerjaan_ibu` varchar(30) NOT NULL,
+  `Alamat` varchar(50) NOT NULL,
+  `No_hp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `balita`
 --
 
-INSERT INTO `balita` (`ID_Balita`, `ID_Petugas`, `Nama`, `Tanggal Lahir`, `Jenis Kelamin`) VALUES
-('B01', 'P01', 'Mardiana Sekarsari', '2015-04-01', 'Perempuan'),
-('B02', 'P02', 'Adian Latifa', '2014-06-02', 'Laki-laki'),
-('B03', 'P03', 'Yuna Sugianela', '2014-11-02', 'Perempuan');
+INSERT INTO `balita` (`ID_Balita`, `ID_Petugas`, `Nama`, `Tanggal Lahir`, `Jenis Kelamin`, `Urutan_anak`, `Nama_ayah`, `Pekerjaan_ayah`, `Nama_ibu`, `Pekerjaan_ibu`, `Alamat`, `No_hp`) VALUES
+('B01', 'P01', 'Mardiana Sekarsari', '2015-04-01', 'Perempuan', 0, '', '0', '', '', '', 0),
+('B02', 'P02', 'Adian Latifa', '2014-06-02', 'Laki-laki', 0, '', '0', '', '', '', 0),
+('B03', 'P03', 'Yuna Sugianela', '2014-11-02', 'Perempuan', 0, '', '0', '', '', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ci_sessions`
+--
+
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+  `id` varchar(40) COLLATE utf8_swedish_ci NOT NULL,
+  `ip_address` varchar(45) COLLATE utf8_swedish_ci NOT NULL,
+  `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+--
+-- Dumping data for table `ci_sessions`
+--
+
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('13fdd92e202d93e680f3d0c0ad39f0bd2c162217', '::1', 1432530577, 0x5f5f63695f6c6173745f726567656e65726174657c693a313433323533303536343b);
 
 -- --------------------------------------------------------
 
@@ -55,9 +80,7 @@ CREATE TABLE IF NOT EXISTS `faq` (
   `ID FAQ` varchar(3) NOT NULL,
   `ID Petugas` varchar(3) DEFAULT NULL,
   `Pertanyaan` varchar(1024) NOT NULL,
-  `Jawaban` varchar(1024) DEFAULT NULL,
-  PRIMARY KEY (`ID FAQ`),
-  KEY `ID Petugas` (`ID Petugas`)
+  `Jawaban` varchar(1024) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -80,9 +103,7 @@ CREATE TABLE IF NOT EXISTS `jadwal_imunisasi` (
   `ID_Petugas` varchar(3) NOT NULL,
   `Tanggal` date NOT NULL,
   `Memo` varchar(1024) NOT NULL,
-  `Tipe` varchar(700) NOT NULL,
-  PRIMARY KEY (`ID_Jadwal`),
-  KEY `ID petugas` (`ID_Petugas`)
+  `Tipe` varchar(700) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -106,8 +127,7 @@ CREATE TABLE IF NOT EXISTS `perkembangan_balita` (
   `Berat_Badan` int(11) NOT NULL,
   `Tinggi/Panjang` int(11) NOT NULL,
   `Catatan` varchar(1024) DEFAULT NULL,
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  KEY `ID Balita` (`ID_Balita`)
+  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -127,20 +147,21 @@ INSERT INTO `perkembangan_balita` (`ID_Balita`, `Berat_Badan`, `Tinggi/Panjang`,
 
 CREATE TABLE IF NOT EXISTS `petugas` (
   `ID Petugas` varchar(3) NOT NULL,
-  `Nama` varchar(200) NOT NULL,
+  `Nama` varchar(30) NOT NULL,
   `No Telp` varchar(20) DEFAULT NULL,
-  `Password` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID Petugas`)
+  `Email` varchar(25) NOT NULL,
+  `Password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `petugas`
 --
 
-INSERT INTO `petugas` (`ID Petugas`, `Nama`, `No Telp`, `Password`) VALUES
-('P01', 'Kharisma Nur Annisa', '0821219293', '5113100026'),
-('P02', 'Fandy Ahmad', '08219887212', '5112100047'),
-('P03', 'Djuned Fernando Djusdek', '08291721921', '5112100071');
+INSERT INTO `petugas` (`ID Petugas`, `Nama`, `No Telp`, `Email`, `Password`) VALUES
+('P01', 'Kharisma Nur Annisa', '0821219293', 'kharisma@gmail.com', '5113100026'),
+('P02', 'Fandy Ahmad', '08219887212', 'fandy@gmail.com', '5112100047'),
+('P03', 'Djuned Fernando Djusdek', '08291721921', 'djuned@gmail.com', '5112100071'),
+('P04', 'Testing', '08080808', 'testing@gamil.com', '123');
 
 -- --------------------------------------------------------
 
@@ -151,9 +172,7 @@ INSERT INTO `petugas` (`ID Petugas`, `Nama`, `No Telp`, `Password`) VALUES
 CREATE TABLE IF NOT EXISTS `saran` (
   `ID_Saran` varchar(3) NOT NULL,
   `ID_Petugas` varchar(3) NOT NULL,
-  `Saran` varchar(1024) NOT NULL,
-  PRIMARY KEY (`ID_Saran`),
-  KEY `ID Petugas` (`ID_Petugas`)
+  `Saran` varchar(1024) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -166,6 +185,52 @@ INSERT INTO `saran` (`ID_Saran`, `ID_Petugas`, `Saran`) VALUES
 ('S03', 'P03', 'Beri makanan yang biasa dimakan oleh keluarga 3 kali sehari yang terdiri dari nasi, lauk pauk, sayur dan buah. Beri makanan selingan 2 kali sehari diantara waktu makan seperti bubur kacang hijau, biskuit, nagasari. Jangan berikan makanan yang manis dan lengket diantara waktu makan'),
 ('S04', 'P01', 'Beri Asi setiap kali bayi menginginkan. Tambahkan telur/ayam/ikan/tempe/tahu/daging sapi/wortel/bayam/kacang hijau/santan/minyak pada bubur nasi. Beri bubur nasi 3 kali sehari. Setiap kali makan diberikan sesuai umur: 6 bulan : 6 sendok makan, 7 bulan : 7 sendok makan, 8 bulan : 8 sendok makan, 9 bulan : 9 sendok makan, 10 bulan : 10 sendok makan, 11 bulan : 11 sendok makan. Beri makanan selingan 2 kali sehari diantaranya waktu makan seperti bubur kacang hijau, pisang, biskuit, nagasari dan sebagainya.Beri buah-buahan atau sari buah'),
 ('S05', 'P02', 'Beri Asi setiap kali bayi menginginkan sedikitnya 8 kali sehari, pagi, maupun malam Jangan berikan makanan atau minuman lain selain ASI');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `balita`
+--
+ALTER TABLE `balita`
+ ADD PRIMARY KEY (`ID_Balita`), ADD KEY `ID Petugas` (`ID_Petugas`);
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+ ADD PRIMARY KEY (`id`), ADD KEY `ci_sessions_timestamp` (`timestamp`);
+
+--
+-- Indexes for table `faq`
+--
+ALTER TABLE `faq`
+ ADD PRIMARY KEY (`ID FAQ`), ADD KEY `ID Petugas` (`ID Petugas`);
+
+--
+-- Indexes for table `jadwal_imunisasi`
+--
+ALTER TABLE `jadwal_imunisasi`
+ ADD PRIMARY KEY (`ID_Jadwal`), ADD KEY `ID petugas` (`ID_Petugas`);
+
+--
+-- Indexes for table `perkembangan_balita`
+--
+ALTER TABLE `perkembangan_balita`
+ ADD KEY `ID Balita` (`ID_Balita`);
+
+--
+-- Indexes for table `petugas`
+--
+ALTER TABLE `petugas`
+ ADD PRIMARY KEY (`ID Petugas`);
+
+--
+-- Indexes for table `saran`
+--
+ALTER TABLE `saran`
+ ADD PRIMARY KEY (`ID_Saran`), ADD KEY `ID Petugas` (`ID_Petugas`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
