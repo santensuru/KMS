@@ -38,7 +38,9 @@
 				height:65px;
 			}
 			#user {
-				margin-top: 20px;
+				/*margin-top: 20px;*/
+				margin-top: 10px;
+				font-size: 1.05em;
 			}
 			/*#user a {
 				color: blue;
@@ -181,7 +183,8 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li id="user"><a href="#"><?=$user?></a></li>
+						<!-- <li id="user"><a href="#"><?=$user?></a></li> -->
+						<li id="user"><a href="<?php echo base_url(); ?>../kms-online">login petugas</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
