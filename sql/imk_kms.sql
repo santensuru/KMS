@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2015 at 07:15 AM
+-- Generation Time: May 25, 2015 at 11:34 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -27,11 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `balita` (
-  `ID_Balita` varchar(10) NOT NULL,
-  `ID_Petugas` varchar(3) NOT NULL,
+  `ID_balita` varchar(10) NOT NULL,
+  `ID_petugas` varchar(3) NOT NULL,
   `Nama` varchar(200) NOT NULL,
-  `Tanggal Lahir` date NOT NULL,
-  `Jenis Kelamin` varchar(100) NOT NULL,
+  `Tanggal_lahir` date NOT NULL,
+  `Jenis_kelamin` varchar(100) NOT NULL,
   `Urutan_anak` int(11) NOT NULL,
   `Nama_ayah` varchar(30) NOT NULL,
   `Pekerjaan_ayah` varchar(30) NOT NULL,
@@ -45,10 +45,12 @@ CREATE TABLE IF NOT EXISTS `balita` (
 -- Dumping data for table `balita`
 --
 
-INSERT INTO `balita` (`ID_Balita`, `ID_Petugas`, `Nama`, `Tanggal Lahir`, `Jenis Kelamin`, `Urutan_anak`, `Nama_ayah`, `Pekerjaan_ayah`, `Nama_ibu`, `Pekerjaan_ibu`, `Alamat`, `No_hp`) VALUES
+INSERT INTO `balita` (`ID_balita`, `ID_petugas`, `Nama`, `Tanggal_lahir`, `Jenis_kelamin`, `Urutan_anak`, `Nama_ayah`, `Pekerjaan_ayah`, `Nama_ibu`, `Pekerjaan_ibu`, `Alamat`, `No_hp`) VALUES
 ('B01', 'P01', 'Mardiana Sekarsari', '2015-04-01', 'Perempuan', 0, '', '0', '', '', '', 0),
 ('B02', 'P02', 'Adian Latifa', '2014-06-02', 'Laki-laki', 0, '', '0', '', '', '', 0),
-('B03', 'P03', 'Yuna Sugianela', '2014-11-02', 'Perempuan', 0, '', '0', '', '', '', 0);
+('B03', 'P03', 'Yuna Sugianela', '2014-11-02', 'Perempuan', 0, '', '0', '', '', '', 0),
+('P04', 'P02', 'Rayn', '2015-05-02', 'on', 1, 'DJ Uned', 'Mahasiswa', 'Ryana', 'Ibu Rumah Tangga', 'Keputih 3A no. 45, Surabaya', 2147483647),
+('P05', 'P02', 'Abinaya Alexi', '2014-01-31', 'on', 2, 'Achilles', 'Dosen', 'Aryani', 'Mahasiswa', 'Keputih 3C, Surabaya', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -68,7 +70,9 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('13fdd92e202d93e680f3d0c0ad39f0bd2c162217', '::1', 1432530577, 0x5f5f63695f6c6173745f726567656e65726174657c693a313433323533303536343b);
+('1c29c40424e86aba20898135b2c2249994d5a735', '::1', 1432544704, 0x5f5f63695f6c6173745f726567656e65726174657c693a313433323534343639353b6c6f676765645f696e7c623a313b757365726d61696c7c733a31373a2274657374696e674067616d696c2e636f6d223b),
+('f20b8f796beaf5d1f1241ef644222dfa8c44d4d0', '::1', 1432536473, 0x5f5f63695f6c6173745f726567656e65726174657c693a313433323533363437333b),
+('fdba117983ae658f10feb3c8c4e7d9559d845a78', '::1', 1432545798, 0x5f5f63695f6c6173745f726567656e65726174657c693a313433323534353534353b6c6f676765645f696e7c623a313b757365726d61696c7c733a31353a2266616e647940676d61696c2e636f6d223b);
 
 -- --------------------------------------------------------
 
@@ -146,9 +150,9 @@ INSERT INTO `perkembangan_balita` (`ID_Balita`, `Berat_Badan`, `Tinggi/Panjang`,
 --
 
 CREATE TABLE IF NOT EXISTS `petugas` (
-  `ID Petugas` varchar(3) NOT NULL,
+  `ID_Petugas` varchar(3) NOT NULL,
   `Nama` varchar(30) NOT NULL,
-  `No Telp` varchar(20) DEFAULT NULL,
+  `No_telp` varchar(20) DEFAULT NULL,
   `Email` varchar(25) NOT NULL,
   `Password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -157,11 +161,12 @@ CREATE TABLE IF NOT EXISTS `petugas` (
 -- Dumping data for table `petugas`
 --
 
-INSERT INTO `petugas` (`ID Petugas`, `Nama`, `No Telp`, `Email`, `Password`) VALUES
+INSERT INTO `petugas` (`ID_Petugas`, `Nama`, `No_telp`, `Email`, `Password`) VALUES
 ('P01', 'Kharisma Nur Annisa', '0821219293', 'kharisma@gmail.com', '5113100026'),
 ('P02', 'Fandy Ahmad', '08219887212', 'fandy@gmail.com', '5112100047'),
 ('P03', 'Djuned Fernando Djusdek', '08291721921', 'djuned@gmail.com', '5112100071'),
-('P04', 'Testing', '08080808', 'testing@gamil.com', '123');
+('P04', 'Testing', '08080808', 'testing@gamil.com', '123'),
+('P05', 'Adry Gracio', '080989999', 'tes@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -194,7 +199,7 @@ INSERT INTO `saran` (`ID_Saran`, `ID_Petugas`, `Saran`) VALUES
 -- Indexes for table `balita`
 --
 ALTER TABLE `balita`
- ADD PRIMARY KEY (`ID_Balita`), ADD KEY `ID Petugas` (`ID_Petugas`);
+ ADD PRIMARY KEY (`ID_balita`), ADD KEY `ID Petugas` (`ID_petugas`);
 
 --
 -- Indexes for table `ci_sessions`
@@ -224,7 +229,7 @@ ALTER TABLE `perkembangan_balita`
 -- Indexes for table `petugas`
 --
 ALTER TABLE `petugas`
- ADD PRIMARY KEY (`ID Petugas`);
+ ADD PRIMARY KEY (`ID_Petugas`);
 
 --
 -- Indexes for table `saran`
